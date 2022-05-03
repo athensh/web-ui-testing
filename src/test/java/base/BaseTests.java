@@ -32,7 +32,7 @@ public class BaseTests {
         driver = new EventFiringWebDriver(new ChromeDriver(getChromeOptions()));
         driver.register(new EventReporter());
         //driver.get("https://the-internet.herokuapp.com/");
-        //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); //this is on project level, not on method
+        //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         goHome();
     }
 
@@ -42,10 +42,10 @@ public class BaseTests {
         homePage = new HomePage(driver);
     }
 
-    /*@AfterClass
+    @AfterClass
     public void tearDown() {
         driver.quit();
-    }*/
+    }
 
     @AfterMethod
     public void recordFailure(ITestResult result) {
@@ -79,22 +79,4 @@ public class BaseTests {
     public CookieManager getCookieManager() {
         return new CookieManager(driver);
     }
-}
-
-       /*//window size options
-        driver.manage().window().setSize(new Dimension(375, 812)); //maximize(),fullscreen();
-
-        List<WebElement> links = driver.findElements(By.tagName("a")); // <a></a>
-        System.out.println(links.size());
-
-        //finds and clicks element
-        WebElement inputsLink = driver.findElement(By.linkText("Inputs")); //returns the first element called inputs
-        inputsLink.click();
-
-
-        WebElement inputsLink = driver.findElement(By.linkText("Extras")); //throws exception
-        inputsLink.click();
-
-        System.out.println(driver.getTitle()); //gets the title of the application
-        driver.quit(); //quits the browser session
-        driver.close(); // closes the window, not necessarily the session*/
+} 
