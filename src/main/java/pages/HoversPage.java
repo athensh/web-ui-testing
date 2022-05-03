@@ -25,8 +25,7 @@ public class HoversPage {
         Actions actions = new Actions(driver);
         WebElement figure =  driver.findElements(figureBox).get(index - 1);
 
-        actions.moveToElement(figure).perform(); //we move to and hover over image
-        //not driver.findElement, we want to find element figCaption (figure is parent of figCaption)
+        actions.moveToElement(figure).perform();
         return new FigureCaption(figure.findElement(figCaption));
     }
 
