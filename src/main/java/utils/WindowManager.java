@@ -31,7 +31,6 @@ public class WindowManager {
     }
 
     public void switchToTab(String tabTitle) {
-        //will return us handles to all of the open windows or tabs
         Set<String> windows = driver.getWindowHandles();
         System.out.println("There are " + windows.size() + " tabs open.");
 
@@ -40,8 +39,7 @@ public class WindowManager {
 
         for (String window: windows) {
             System.out.println("Switching to " + window + " window.");
-            driver.switchTo().window(window); //works for windows and tabs
-            //window is a unique identifier we don't know, thus driver.getTitle() is more meaningful to us
+            driver.switchTo().window(window);
             System.out.println("Current window title: " + driver.getTitle());
             if (tabTitle.equals(driver.getTitle()))
                 break;
