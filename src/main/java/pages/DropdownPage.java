@@ -23,15 +23,12 @@ public class DropdownPage {
     }
 
     public List<String> getSelectedOptions() {
-        List<WebElement> selectedElements = findDropdownElement().getAllSelectedOptions();
-        //all the selected options, for the test to make sure the only thing selected is what it's expecting to be selected.
-        //i want them to be list of strings and not web elements
+        List<WebElement> selectedElements = findDropdownElement().getAllSelectedOptions(); 
         return selectedElements.stream().map(e -> e.getText()).collect(Collectors.toList());
         //return selectedElements.stream().map(WebElement::getText).collect(Collectors.toList());
     }
 
     private Select findDropdownElement() {
-        //Select allows you to select/deselect
         return new Select(driver.findElement(dropdown));
     }
 }
